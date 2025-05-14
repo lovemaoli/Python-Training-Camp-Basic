@@ -26,7 +26,13 @@ def get_website_content(url):
     # 请在下方编写代码
     # 使用requests.get()发送GET请求
     # 返回包含状态码、内容和头部信息的字典
-    pass
+    import requests
+    response = requests.get(url)
+    return {
+        'status_code': response.status_code,
+        'content': response.text,
+        'headers': response.headers
+    }
 
 def post_data(url, data):
     """
@@ -47,4 +53,10 @@ def post_data(url, data):
     # 请在下方编写代码
     # 使用requests.post()发送POST请求
     # 返回包含状态码、响应JSON和成功标志的字典
-    pass 
+    import requests
+    response = requests.post(url, json=data)
+    return {
+        'status_code': response.status_code,
+        'response_json': response.json() if response.status_code == 200 else None,
+        'success': response.ok
+    }

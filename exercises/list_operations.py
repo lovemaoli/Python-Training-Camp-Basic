@@ -20,4 +20,22 @@ def student_list_operations(students, operation, *args):
     - 操作后的学生列表
     """
     # 请在下方编写代码
-    pass 
+    if operation == "add":
+        # 添加学生
+        student = args[0]
+        students.append(student)
+        return students
+    elif operation == "remove":
+        # 删除学生
+        student = args[0]
+        if student in students:
+            students.remove(student)
+        return students
+    elif operation == "update":
+        # 更新学生信息
+        index, new_student = args
+        if 0 <= index < len(students):
+            students[index] = new_student
+        return students
+    else:
+        raise ValueError("Invalid operation")

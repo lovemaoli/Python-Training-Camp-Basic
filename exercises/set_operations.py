@@ -20,4 +20,14 @@ def student_set_operations(set1, set2, operation):
     - 集合操作的结果
     """
     # 请在下方编写代码
-    pass
+    if operation == "union":
+        # 并集
+        return set1.union(set2)
+    elif operation == "intersection":
+        # 交集
+        return set1.intersection(set2)
+    elif operation == "difference":
+        # 差集
+        return set1.difference(set2)
+    else:
+        raise ValueError("Invalid operation")
