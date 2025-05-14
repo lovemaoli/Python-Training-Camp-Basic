@@ -57,6 +57,6 @@ def post_data(url, data):
     response = requests.post(url, json=data)
     return {
         'status_code': response.status_code,
-        'response_json': response.json() if response.status_code == 200 else None,
+        'response_json': response.json(),
         'success': response.ok
     }

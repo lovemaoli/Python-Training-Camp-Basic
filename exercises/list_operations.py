@@ -33,8 +33,9 @@ def student_list_operations(students, operation, *args):
         return students
     elif operation == "update":
         # 更新学生信息
-        index, new_student = args
-        if 0 <= index < len(students):
+        old_student, new_student = args
+        if old_student in students:
+            index = students.index(old_student)
             students[index] = new_student
         return students
     else:
